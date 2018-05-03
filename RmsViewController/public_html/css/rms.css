@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+af|inputListOfValues, af|inputComboboxListOfValues {
+    -tr-stretch-search-dialog: false;
+}
+
+.harveyBall af|link::image {
+    height: 16px;
+    width: 16px;
+}
+
+.RetailAppsInfoTileTitleText {
+    font-size: 12px;
+}
+
+af|inputListOfValues::dialog,
+af|inputComboboxListOfValues::dialog 
+{
+width: 550px;
+}

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <f:facet name="footer"/>
+    <af:selectOneChoice label="Mode" value="#{sessionScope.pmMode}" autoSubmit="true"
+                        valueChangeListener="#{backingBeanScope.MaintainModeBean.modeChanged}"
+                        id="soc1">
+      <af:selectItem label="Edit" value="EDIT_MODE" id="si1"/>
+      <af:selectItem label="View" value="VIEW_MODE" id="si2"/>
+    </af:selectOneChoice>
+  </af:panelFormLayout>
+</jsp:root>

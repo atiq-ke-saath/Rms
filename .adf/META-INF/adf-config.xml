@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<adf-config xmlns="http://xmlns.oracle.com/adf/config" xmlns:config="http://xmlns.oracle.com/bc4j/configuration" xmlns:adf="http://xmlns.oracle.com/adf/config/properties" xmlns:sec="http://xmlns.oracle.com/adf/security/config">
+  <adf-adfm-config xmlns="http://xmlns.oracle.com/adfm/config" xmlns:ns2="http://xmlns.oracle.com/adf/config" xmlns:ns1="http://xmlns.oracle.com/adfm/config" xmlns:ns5="http://xmlns.oracle.com/adf/mds/config" xmlns:ns4="http://xmlns.oracle.com/webcenter/framework/service" xmlns:ns3="http://xmlns.oracle.com/mds/config">
+    <defaults useBindVarsForViewCriteriaLiterals="true" useBindValuesInFindByKey="true" executeEmptyOnException="true" joinNewFrameTransaction="true"/>
+    <startup>
+      <amconfig-overrides>
+        <config:Database jbo.locking.mode="optimistic"/>
+      </amconfig-overrides>
+    </startup>
+  </adf-adfm-config>
+  <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
+    <adf-property name="adfAppUID" value="Rms.oracle.retail.apps.rms"/>
+  </adf:adf-properties-child>
+  <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
+    <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore" credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
+    <sec:JaasSecurityContext initialContextFactoryClass="oracle.adf.share.security.JAASInitialContextFactory" jaasProviderClass="oracle.adf.share.security.providers.jps.JpsSecurityContext" authorizationEnforce="true" authenticationRequire="true"/>
+  </sec:adf-security-child>
+  <adf-faces-config xmlns="http://xmlns.oracle.com/adf/faces/config">
+    <persistent-change-manager>
+      <persistent-change-manager-class>oracle.adf.view.rich.change.MDSDocumentChangeManager</persistent-change-manager-class>
+    </persistent-change-manager>
+  </adf-faces-config>
+  <adf-mds-config xmlns="http://xmlns.oracle.com/adf/mds/config" xmlns:ns5="http://xmlns.oracle.com/adf/mds/config" xmlns:ns3="http://xmlns.oracle.com/mds/config">
+    <mds-config xmlns="http://xmlns.oracle.com/mds/config" version="11.1.1.000">
+<persistence-config>
+<metadata-namespaces>
+<namespace path="/oracle/adf/share/prefs" metadata-store-usage="ADFFileMetadataStore"/>
+<namespace path="/persdef" metadata-store-usage="ADFFileMetadataStore"/>
+<namespace path="/xliffBundles" metadata-store-usage="ADFFileMetadataStore"/>
+</metadata-namespaces>
+<metadata-store-usages>
+<metadata-store-usage id="ADFFileMetadataStore" deploy-target="true" default-cust-store="true">
+<ns3:metadata-store class-name="oracle.mds.persistence.stores.db.DBMetadataStore">
+<ns3:property name="repository-name" value="mds-CustomPortalDS"/>
+<ns3:property name="partition-name" value="Rms"/>
+<ns3:property name="jndi-datasource" value="jdbc/mds/CustomPortalDS"/>
+</ns3:metadata-store>
+</metadata-store-usage>
+</metadata-store-usages>
+<retry-connection enabled="true"/>
+</persistence-config>
+<cust-config>
+<match path="/">
+<customization-class name="oracle.retail.apps.rms.model.RmsSiteCC"/>
+<customization-class name="oracle.retail.apps.rms.model.RmsUserCC"/>
+</match>
+</cust-config>
+</mds-config>
+  </adf-mds-config>
+  <adf-resourcebundle-config xmlns="http://xmlns.oracle.com/adf/resourcebundle/config">
+    <applicationBundleName>resourcebundles/xliffBundles/RmsOverrideBundle</applicationBundleName>
+    <bundleList>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_ja</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_pl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_it</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_zh_TW</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.model.RmsFoundationHierarchyModelBundle_ko</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_sv</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_fr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_pt_BR</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.model.RmsFoundationItemModelBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.view.RmsCommonViewControllerBundle</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.common.model.RmsCommonModelBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.item.view.RmsFoundationItemViewControllerBundle_ru</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.model.RmsImportModelBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.model.RmsProcurementModelBundle_zh_CN</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_el</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.model.RmsFoundationOtherModelBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.imports.view.RmsImportViewControllerBundle_hu</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.hierarchy.view.RmsFoundationHierarchyViewControllerBundle_hr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_de</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.procurement.view.RmsProcurementViewControllerBundle_nl</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.model.RmsInventoryModelBundle_tr</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.foundation.other.view.RmsFoundationOtherViewControllerBundle_es</bundleId>
+      <bundleId override="true">oracle.retail.apps.rms.inventory.view.RmsInventoryViewControllerBundle_ru</bundleId>
+    </bundleList>
+  </adf-resourcebundle-config>
+</adf-config>

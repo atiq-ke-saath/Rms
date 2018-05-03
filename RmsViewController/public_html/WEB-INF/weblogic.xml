@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<wls:weblogic-web-app xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-web-app
+                      http://xmlns.oracle.com/weblogic/weblogic-web-app/1.7/weblogic-web-app.xsd">
+    <wls:security-role-assignment>
+        <wls:role-name>valid-users</wls:role-name>
+        <wls:principal-name>users</wls:principal-name>
+    </wls:security-role-assignment>    
+    <wls:library-ref>
+        <wls:library-name>oracle.retail.apps.rms.lib.registry</wls:library-name>
+        <wls:specification-version>16.0</wls:specification-version>
+    </wls:library-ref>
+    <wls:library-ref>
+        <wls:library-name>adf.oracle.domain.webapp</wls:library-name>
+    </wls:library-ref>
+    <wls:context-root>Rms</wls:context-root>
+</wls:weblogic-web-app>

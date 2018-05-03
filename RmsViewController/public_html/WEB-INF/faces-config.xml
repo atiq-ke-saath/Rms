@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://java.sun.com/xml/ns/javaee">
+  <application>
+    <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+    <locale-config>
+      <default-locale>en</default-locale>
+      <supported-locale>zh_CN</supported-locale>
+      <supported-locale>zh_TW</supported-locale>
+      <supported-locale>hr</supported-locale>
+      <supported-locale>fr</supported-locale>
+      <supported-locale>de</supported-locale>
+      <supported-locale>en</supported-locale>
+      <supported-locale>el</supported-locale>
+      <supported-locale>hu</supported-locale>
+      <supported-locale>it</supported-locale>
+      <supported-locale>ja</supported-locale>
+      <supported-locale>ko</supported-locale>
+      <supported-locale>pl</supported-locale>
+      <supported-locale>pt</supported-locale>
+      <supported-locale>ru</supported-locale>
+      <supported-locale>es</supported-locale>
+      <supported-locale>sv</supported-locale>
+      <supported-locale>tr</supported-locale>
+      <supported-locale>ar</supported-locale>
+      <supported-locale>nl</supported-locale>
+    </locale-config>
+  </application>
+  <validator>
+    <validator-id>PrecisionValidator</validator-id>
+    <validator-class>oracle.retail.apps.rms.common.view.validator.ValuePrecisionValidator</validator-class>
+  </validator>
+</faces-config>

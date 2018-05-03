@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <c:set var="rmsviewcontrollerBundle"
+         value="#{adfBundle['oracle.retail.apps.rms.view.RmsViewControllerBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1" usesUpload="true">
+        <af:pageTemplate viewId="/oracle/retail/apps/framework/uishell/pagetemplate/RetailUiShellPageTemplate.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+        
+          <f:facet name="addDefaultGlobalMenuSection"/>
+          <f:facet name="customSidebarArea"/>
+          <f:facet name="customContentArea"/>
+          <f:facet name="customGlobalMenuArea"/>
+          <f:facet name="customApplicationMenuBar"/>
+          <f:attribute name="globalMenuModelXml"
+                       value="/oracle/retail/apps/rms/view/uishell/config/custom/HomeGlobalMenuModel.xml"/>
+          <f:attribute name="taskMenuTitle" value="#{rmsviewcontrollerBundle.TASKS}"/>
+          <f:attribute name="taskMenuModelXml"
+                       value="/oracle/retail/apps/rms/view/uishell/config/custom/HomeSidebarNavigationTreeModel.xml"/>
+        
+          <f:attribute name="reportsMenuModelXml"
+                       value="/oracle/retail/apps/rms/view/uishell/config/custom/HomeReportsMenuModel.xml"/>             
+          <f:attribute name="applicationTitle"
+                       value="#{rmsviewcontrollerBundle.RMS_APPLICATION_TITLE}"/>
+         <f:attribute name="renderAppSwitcher" value="true"/>
+         <f:attribute name="useNotifications" value="true"/>
+         <f:attribute name="renderFavorites" value="true"/>
+         <f:attribute name="renderReportsMenu" value="true"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

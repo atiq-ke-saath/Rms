@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trinidad-config xmlns="http://myfaces.apache.org/trinidad/config">
+  <skin-family>retail-rms</skin-family>
+  <animation-enabled>false</animation-enabled>
+  <number-grouping-separator>#{RetailAppsPrefBean.numberGroupingSeparator}</number-grouping-separator>
+  <decimal-separator>#{RetailAppsPrefBean.decimalSeparator}</decimal-separator>
+  <accessibility-mode>#{RetailAppsPrefBean.preferredAccessibilityMode}</accessibility-mode>
+  <accessibility-profile>#{RetailAppsPrefBean.accessibilityProfile}</accessibility-profile>
+</trinidad-config>

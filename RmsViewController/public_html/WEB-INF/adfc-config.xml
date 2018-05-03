@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="RmsAbout">
+    <page>/oracle/retail/apps/rms/view/uishell/About.jspx</page>
+  </view>
+  <view id="RmsHome">
+    <page>/oracle/retail/apps/rms/view/uishell/Home.jspx</page>
+  </view>
+  <view id="RmsLogin">
+    <page>/oracle/retail/apps/rms/view/uishell/Login.jspx</page>
+  </view>
+  <view id="RmsPreferences">
+    <page>/oracle/retail/apps/rms/view/uishell/Preferences.jspx</page>
+  </view>
+  <managed-bean id="__4">
+    <managed-bean-name id="__1">retailNumerics</managed-bean-name>
+    <managed-bean-class id="__3">oracle.retail.apps.rms.common.view.util.converter.RmsNumericConverter</managed-bean-class>
+    <managed-bean-scope id="__2">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name id="__6">SystemOptionBean</managed-bean-name>
+    <managed-bean-class id="__8">oracle.retail.apps.rms.common.view.bean.SysOptProviderBean</managed-bean-class>
+    <managed-bean-scope id="__5">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name>ExternalProviderBean</managed-bean-name>
+    <managed-bean-class>oracle.retail.apps.rms.common.view.util.ExternalProviderBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name>RmsQueryBean</managed-bean-name>
+    <managed-bean-class>oracle.retail.apps.rms.common.view.bean.RmsQueryBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__11">
+    <managed-bean-name>FileUploadAccessControlBean</managed-bean-name>
+    <managed-bean-class>oracle.retail.apps.rms.common.view.fileupload.bean.FileUploadAccessControlBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name>OiSystemOptionsProviderBean</managed-bean-name>
+    <managed-bean-class>oracle.retail.apps.rms.common.view.bean.OiSystemOptionsProviderBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>
